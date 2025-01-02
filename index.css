@@ -1,0 +1,53 @@
+ body {
+     background-color: rgb(214, 222, 224);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+ }
+
+ input {
+     border: none;
+ }
+
+ form {
+     width: 300px;
+ }
+
+ input,
+ button {
+     padding: 10px;
+     margin-bottom: 10px;
+     /* preenche o espaco que falta  */
+     width: -webkit-fill-available;
+ }
+
+ button {
+     cursor: pointer;
+ }
+
+ button:active {
+     opacity: 0.8;
+ }
+
+ button[disabled] {
+     opacity: 0.8;
+ }
+
+ .recuperar {
+     background: transparent;
+     border: none;
+ }
+
+ .registar,
+ .submit {
+     background: transparent;
+     color: rgb(19, 18, 18);
+     border: 1px solid white;
+ }
+
+ .error {
+     color: white;
+     background-color: rgb(194, 94, 94);
+     display: none;
+ }

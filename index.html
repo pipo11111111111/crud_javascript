@@ -9,49 +9,46 @@
         <div>
           <label>Email</label>
         </div>
-        <input type="eEmailmail" name="email" placeholder="Email" />
+        <input
+          id="email"
+          type="eEmailmail"
+          name="email"
+          placeholder="Email"
+          onchange="onchangeEmail()"
+        />
       </div>
+      <div class="error" id="email-required-error">Email é obrigatorio</div>
+      <div class="error" id="email-invalid-error">Email é invalido</div>
       <div>
         <div>
           <label>Password</label>
         </div>
-        <input type="password" name="password" placeholder="" />
+        <input
+          type="password"
+          name="password"
+          placeholder=""
+          id="password"
+          onchange="onchangePassword()"
+        />
+      </div>
+      <div class="error" id="password-invalid-error">
+        Password é Obrigatória
       </div>
       <div>
-        <button type="button" class="recuperar">Recuperar senha</button>
-      </div>
-      <div>
-        <button type="button" class="submit">Submit</button>
+        <button type="button" class="submit" id="login" disabled="true">
+          Entrar
+        </button>
       </div>
       <div>
         <button type="button" class="registar">Registar</button>
       </div>
+      <div>
+        <button id="recuperar" type="button" class="recuperar" disabled="true">
+          Recuperar senha
+        </button>
+      </div>
     </form>
   </body>
-  <style>
-    body {
-      background-color: rgb(214, 222, 224);
-    }
-    input,
-    button {
-      padding: 10px;
-      margin-bottom: 10px;
-    }
-    button {
-      cursor: pointer;
-    }
-    .recuperar {
-      background: transparent;
-      border: none;
-    }
-    .submit {
-      background: white;
-      border: none;
-    }
-    .registar {
-      background: transparent;
-      color: rgb(19, 18, 18);
-      border: 1px solid white;
-    }
-  </style>
+  <link rel="stylesheet" href="index.css" />
+  <script src="index.js"></script>
 </html>
