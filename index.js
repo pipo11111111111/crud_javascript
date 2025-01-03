@@ -4,37 +4,27 @@ function onchangeEmail() {
 }
 function onchangePassword() {
   toggleButtonDisable();
-
   togglePasswordErrors();
 }
-
-function validateEmail(email) {
-  return /\S+@\S+\.\S+/.test(email);
+function loginHome(){
+  window.location.href = "/pages/home/home.html"
+  console.log("window",window.location)
+}
+function registar(){
+  window.location.href ="/pages/register/registar.html"
 }
 function toogleEmailErrors() {
-  const email = document.getElementById("email").value;
-  if (!email) {
-    document.getElementById("email-required-error").style.display = "block";
-  } else {
-    document.getElementById("email-required-error").style.display = "none";
-  }
+  const email = form.email().value;
+  form.email_error().style.display = email ? "none" : "block";
 
-  if (validateEmail(email)) {
-    document.getElementById("email-invalid-error").style.display = "none";
-  } else {
-    document.getElementById("email-invalid-error").style.display = "block";
-  }
+  form.email_invalid().style.display = validateEmail(email) ? "none" : "block";
 }
 function togglePasswordErrors() {
-  const pass = document.getElementById("password").value;
-  if (!pass) {
-    document.getElementById("password-invalid-error").style.display = "block";
-  } else {
-    document.getElementById("password-invalid-error").style.display = "none";
-  }
+  const pass = form.password().value;
+  form.password_invalid().style.display = pass ? "none" : "block";
 }
 function isEmailValid() {
-  const email = document.getElementById("email").value;
+  const email = form.email().value;
   if (!email) {
     return false;
   }
@@ -43,16 +33,26 @@ function isEmailValid() {
 
 function toggleButtonDisable() {
   const EmailValid = isEmailValid();
-  document.getElementById("recuperar").disabled = !EmailValid;
+  form.recuperar().disabled = !EmailValid;
 
   const PasswordValid = isPasswordValid();
-  document.getElementById("login").disabled = !EmailValid || !PasswordValid;
+  form.login().disabled = !EmailValid || !PasswordValid;
 }
 
 function isPasswordValid() {
-  const pass = document.getElementById("password").value;
+  const pass = form.password().value;
   if (!pass) {
     return false;
   }
   return true;
 }
+
+const form = {
+  email: () => document.getElementById("email"),
+  password: () => document.getElementById("password"),
+  email_error: () => document.getElementById("email-required-error"),
+  email_invalid: () => document.getElementById("email-invalid-error"),
+  password_invalid: () => document.getElementById("password-invalid-error"),
+  recuperar: () => document.getElementById("recuperar"),
+  login: () => document.getElementById("login"),
+};
